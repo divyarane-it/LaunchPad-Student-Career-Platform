@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | LaunchPad</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+
+<body class="settings-page">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <a href="dashboard.html" class="brand-logo">
+            Launch<span>Pad.</span>
+        </a>
+
+        <p class="nav-label">WORKSPACE</p>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">
+                <span>◫</span> Overview
+            </a>
+            <a href="internships.html" class="nav-link">
+                <span>▣</span> Internships
+            </a>
+            <a href="skills.html" class="nav-link">
+                <span>✦</span> My Skills
+            </a>
+            <a href="tasks.html" class="nav-link">
+                <span>☑</span> Task Planner
+            </a>
+            <a href="quiz.html" class="nav-link">
+                <span>◉</span> Skill Quiz
+            </a>
+        </nav>
+
+        <p class="nav-label">ACCOUNT</p>
+
+        <nav class="sidebar-nav">
+            <a href="profile.html" class="nav-link">
+                <span>♙</span> My Profile
+            </a>
+            <a href="settings.html" class="nav-link active">
+                <span>⚙</span> Settings
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="user-mini">
+                <div class="avatar" id="userAvatar">S</div>
+                <div>
+                    <strong id="sidebarUserName">Student</strong>
+                    <small>LaunchPad Member</small>
+                </div>
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                ↪ Sign Out
+            </button>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div>
+                    <h2>Settings</h2>
+                    <p>Manage your account preferences</p>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <button id="themeToggle" class="theme-toggle">☼</button>
+            </div>
+        </header>
+
+        <!-- PAGE HEADING -->
+        <section class="page-heading">
+            <span class="eyebrow">PREFERENCES</span>
+            <h1>Settings & Preferences</h1>
+            <p>Customize your LaunchPad experience.</p>
+        </section>
+
+        <!-- SETTINGS CONTENT -->
+        <section class="settings-container">
+
+            <!-- APPEARANCE -->
+            <div class="settings-card">
+                <div class="settings-card-heading">
+                    <div class="settings-icon">🎨</div>
+                    <div>
+                        <h2>Appearance</h2>
+                        <p>Customize how LaunchPad looks.</p>
+                    </div>
+                </div>
+
+                <div class="setting-row">
+                    <div>
+                        <h3>Theme Preference</h3>
+                        <p>Choose between dark and light appearance.</p>
+                    </div>
+
+                    <select id="themePreference" class="settings-select">
+                        <option value="dark">Dark Theme</option>
+                        <option value="light">Light Theme</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ACCOUNT -->
+            <div class="settings-card">
+                <div class="settings-card-heading">
+                    <div class="settings-icon">👤</div>
+                    <div>
+                        <h2>Account Information</h2>
+                        <p>View your registered account details.</p>
+                    </div>
+                </div>
+
+                <div class="setting-row">
+                    <div>
+                        <h3>Email Address</h3>
+                        <p>Your registered LaunchPad email.</p>
+                    </div>
+                    <span id="accountEmail" class="setting-value">Loading...</span>
+                </div>
+
+                <div class="setting-row">
+                    <div>
+                        <h3>Account Status</h3>
+                        <p>Your current account status.</p>
+                    </div>
+                    <span class="status-badge">Active</span>
+                </div>
+
+                <div class="setting-row">
+                    <div>
+                        <h3>Member Since</h3>
+                        <p>Your LaunchPad registration date.</p>
+                    </div>
+                    <span id="memberSince" class="setting-value">Loading...</span>
+                </div>
+            </div>
+
+            <!-- SECURITY -->
+            <div class="settings-card">
+                <div class="settings-card-heading">
+                    <div class="settings-icon">🔐</div>
+                    <div>
+                        <h2>Security</h2>
+                        <p>Keep your account secure.</p>
+                    </div>
+                </div>
+
+                <div class="setting-row">
+                    <div>
+                        <h3>Password</h3>
+                        <p>Update your account password.</p>
+                    </div>
+                    <button type="button" id="changePasswordBtn"
+                        class="settings-action-btn">
+                        Change Password
+                    </button>
+                </div>
+            </div>
+
+            <!-- DANGER ZONE -->
+            <div class="settings-card danger-card">
+                <div class="settings-card-heading">
+                    <div class="settings-icon">⚠️</div>
+                    <div>
+                        <h2>Danger Zone</h2>
+                        <p>Manage your account access.</p>
+                    </div>
+                </div>
+
+                <div class="setting-row">
+                    <div>
+                        <h3>Sign Out</h3>
+                        <p>Sign out from your LaunchPad account.</p>
+                    </div>
+                    <button type="button" id="settingsLogoutBtn"
+                        class="danger-btn">
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+
+            <p id="settingsMessage" class="settings-message"></p>
+
+        </section>
+
+    </main>
+
+    <!-- CHANGE PASSWORD MODAL -->
+    <div class="settings-modal-overlay" id="passwordModal">
+        <div class="settings-modal">
+
+            <div class="modal-heading">
+                <div>
+                    <h2>Change Password</h2>
+                    <p>Choose a new secure password.</p>
+                </div>
+                <button type="button" id="closePasswordModal"
+                    class="modal-close">×</button>
+            </div>
+
+            <form id="passwordForm">
+
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword"
+                        placeholder="Enter new password"
+                        minlength="8" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword"
+                        placeholder="Confirm new password"
+                        minlength="8" required>
+                </div>
+
+                <p id="passwordMessage" class="settings-message"></p>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelPasswordBtn"
+                        class="settings-cancel-btn">Cancel</button>
+
+                    <button type="submit" id="savePasswordBtn"
+                        class="settings-action-btn">Update Password</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

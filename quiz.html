@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Quiz | LaunchPad</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/quiz.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+</head>
+
+<body class="quiz-page">
+
+    
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+
+    <a href="dashboard.html" class="brand-logo">
+        Launch<span>Pad.</span>
+    </a>
+
+    <p class="nav-label">WORKSPACE</p>
+
+    <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-link">
+            <span>◫</span> Overview
+        </a>
+
+        <a href="internships.html" class="nav-link">
+            <span>▣</span> Internships
+        </a>
+
+        <a href="skills.html" class="nav-link">
+            <span>✦</span> My Skills
+        </a>
+
+        <a href="tasks.html" class="nav-link">
+            <span>☑</span> Task Planner
+        </a>
+
+        <a href="quiz.html" class="nav-link active">
+            <span>◉</span> Skill Quiz
+        </a>
+    </nav>
+
+    <p class="nav-label">ACCOUNT</p>
+
+    <nav class="sidebar-nav">
+        <a href="profile.html" class="nav-link">
+            <span>♙</span> My Profile
+        </a>
+
+        <a href="settings.html" class="nav-link">
+            <span>⚙</span> Settings
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <div class="user-mini">
+            <div class="avatar" id="userAvatar">D</div>
+            <div>
+                <strong id="sidebarUserName">Student</strong>
+                <small>LaunchPad Member</small>
+            </div>
+        </div>
+
+        <button id="logoutBtn" class="logout-btn">
+            ↪ Sign Out
+        </button>
+    </div>
+
+</aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="topbar-left">
+                <button id="menuBtn" class="menu-btn">☰</button>
+                <h3>Skill Quiz</h3>
+            </div>
+
+            <div class="topbar-right">
+                <button id="themeToggle" class="theme-toggle">☼</button>
+                <div class="topbar-avatar" id="topbarAvatar">D</div>
+            </div>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <h1>Test Your Knowledge 🧠</h1>
+                <p>Challenge yourself and track your learning progress.</p>
+            </div>
+        </section>
+
+        <section class="quiz-intro" id="quizIntro">
+            <div class="quiz-intro-content">
+                <span class="quiz-icon">🎯</span>
+                <h2>Ready to Challenge Yourself?</h2>
+                <p>
+                    Test your knowledge with our interactive
+                    technology quiz.
+                </p>
+
+                <div class="quiz-info">
+                    <span>📝 10 Questions</span>
+                    <span>⏱ 10 Minutes</span>
+                    <span>🏆 Score Tracking</span>
+                </div>
+
+                <button id="startQuizBtn" class="primary-btn">
+                    Start Quiz →
+                </button>
+            </div>
+        </section>
+
+        <section class="quiz-container" id="quizContainer" hidden>
+
+            <div class="quiz-progress">
+                <div>
+                    <span id="questionCounter">Question 1 of 10</span>
+                    <span id="quizTimer">10:00</span>
+                </div>
+
+                <div class="progress-track">
+                    <div id="quizProgressBar"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <h2 id="questionText">Question appears here</h2>
+
+                <div class="options-list" id="optionsList"></div>
+
+                <div class="quiz-navigation">
+                    <button id="previousBtn" class="secondary-btn">
+                        ← Previous
+                    </button>
+
+                    <button id="nextBtn" class="primary-btn">
+                        Next →
+                    </button>
+
+                    <button id="submitQuizBtn" class="primary-btn" hidden>
+                        Submit Quiz
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="quiz-result" id="quizResult" hidden>
+            <div class="result-card">
+                <div class="result-icon">🏆</div>
+                <h2>Quiz Completed!</h2>
+
+                <div class="score-display">
+                    <span id="finalScore">0/10</span>
+                    <small>Your Score</small>
+                </div>
+
+                <h3 id="resultMessage">Good effort!</h3>
+                <p id="resultDescription"></p>
+
+                <button id="retryQuizBtn" class="primary-btn">
+                    Try Again ↻
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/theme.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Tracker | LaunchPad</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/internships.css">
+</head>
+<body class="internships-page">
+
+    <aside class="sidebar" id="sidebar">
+        <a href="dashboard.html" class="brand-logo">
+            Launch<span>Pad.</span>
+        </a>
+
+        <nav class="sidebar-nav">
+            <p class="nav-label">WORKSPACE</p>
+            <a href="dashboard.html" class="nav-link">▦ Dashboard</a>
+            <a href="internships.html" class="nav-link active">▤ Internships</a>
+            <a href="skills.html" class="nav-link">✧ Skills</a>
+            <a href="tasks.html" class="nav-link">☑ Tasks</a>
+            <a href="quiz.html" class="nav-link">◎ Skill Quiz</a>
+
+            <p class="nav-label">ACCOUNT</p>
+            <a href="profile.html" class="nav-link">◉ Profile</a>
+            <a href="settings.html" class="nav-link">⚙ Settings</a>
+        </nav>
+
+        <div class="sidebar-user">
+            <div class="user-avatar" id="userAvatar">S</div>
+            <div>
+                <strong id="sidebarUserName">Student</strong>
+                <small>LaunchPad Member</small>
+            </div>
+            <button id="logoutBtn" class="logout-btn">↪</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button id="menuBtn" class="icon-button">☰</button>
+            <div class="topbar-right">
+                <button id="themeToggle" class="icon-button">☼</button>
+                <div class="user-avatar" id="topbarAvatar">S</div>
+            </div>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">CAREER MANAGEMENT</p>
+                <h1>Internship Tracker</h1>
+                <p class="page-description">
+                    Organize your applications and stay on top of every opportunity.
+                </p>
+            </div>
+
+            <button class="primary-button" id="addInternshipBtn">
+                + Add Application
+            </button>
+        </section>
+
+        <section class="internship-stats">
+
+            <article class="internship-stat-card">
+                <span>Total Applications</span>
+                <h2 id="statTotal">0</h2>
+            </article>
+
+            <article class="internship-stat-card">
+                <span>In Progress</span>
+                <h2 id="statProgress">0</h2>
+            </article>
+
+            <article class="internship-stat-card">
+                <span>Interviews</span>
+                <h2 id="statInterviews">0</h2>
+            </article>
+
+            <article class="internship-stat-card">
+                <span>Selected</span>
+                <h2 id="statSelected">0</h2>
+            </article>
+
+        </section>
+
+        <section class="internship-panel">
+
+            <div class="tracker-toolbar">
+                <div>
+                    <h2>Your Applications</h2>
+                    <p>Keep track of your career opportunities.</p>
+                </div>
+
+                <div class="tracker-controls">
+                    <input
+                        type="search"
+                        id="searchInternship"
+                        placeholder="Search company or role..."
+                    >
+
+                    <select id="filterStatus">
+                        <option value="All">All Statuses</option>
+                        <option value="Applied">Applied</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Selected">Selected</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="internship-table">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Role</th>
+                            <th>Location</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="internshipTable">
+                        <tr>
+                            <td colspan="6">Loading applications...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Add / Edit Application Modal -->
+
+    <div class="modal-overlay" id="internshipModal">
+
+        <div class="internship-modal">
+
+            <div class="modal-heading">
+                <div>
+                    <p class="eyebrow">OPPORTUNITY MANAGER</p>
+                    <h2 id="modalTitle">Add Application</h2>
+                </div>
+
+                <button id="closeModalBtn" class="icon-button">✕</button>
+            </div>
+
+            <form id="internshipForm">
+
+                <input type="hidden" id="internshipId">
+
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" required
+                        placeholder="e.g. Microsoft">
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Internship Role</label>
+                    <input type="text" id="role" required
+                        placeholder="e.g. Web Developer Intern">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location"
+                        placeholder="e.g. Remote / Mumbai">
+                </div>
+
+                <div class="form-group">
+                    <label for="internshipType">Internship Type</label>
+                    <select id="internshipType">
+                        <option value="Remote">Remote</option>
+                        <option value="On-site">On-site</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="deadline">Application Deadline</label>
+                    <input type="date" id="deadline">
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Application Status</label>
+                    <select id="status">
+                        <option value="Applied">Applied</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Selected">Selected</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" rows="3"
+                        placeholder="Add any important details..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="cancelModalBtn" class="secondary-button">
+                        Cancel
+                    </button>
+
+                    <button type="submit" id="saveInternshipBtn" class="primary-button">
+                        Save Application
+                    </button>
+                </div>
+
+                <p id="internshipMessage"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/internships.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

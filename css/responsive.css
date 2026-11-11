@@ -1,0 +1,274 @@
+
+/* =========================================
+   LAUNCHPAD - RESPONSIVE DESIGN
+========================================= */
+
+/* TABLETS AND SMALL LAPTOPS */
+
+@media (max-width: 1024px) {
+    .hero {
+        padding: 80px 5%;
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .features-section {
+        padding: 80px 5%;
+    }
+
+    .about-section {
+        padding: 85px 6%;
+        gap: 40px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* TABLETS */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 16px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 28px;
+        padding-top: 10px;
+    }
+
+    .nav-actions {
+        gap: 15px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 70px 7%;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .hero-content > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons,
+    .hero-note {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        width: 100%;
+        max-width: 550px;
+        margin: 10px auto 0;
+    }
+
+    .features-section {
+        padding: 75px 6%;
+    }
+
+    .features-grid {
+        gap: 15px;
+    }
+
+    .feature-card {
+        padding: 23px;
+    }
+
+    .about-section {
+        grid-template-columns: 1fr;
+        padding: 80px 7%;
+        gap: 35px;
+    }
+
+    .about-highlight {
+        padding: 30px;
+    }
+}
+
+/* MOBILE PHONES */
+
+@media (max-width: 480px) {
+    .navbar {
+        min-height: auto;
+        padding: 15px 5%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a,
+    .login-link {
+        font-size: 12px;
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .nav-btn {
+        padding: 10px 13px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+        gap: 25px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+        letter-spacing: -1.5px;
+    }
+
+    .hero-content > p {
+        font-size: 14px;
+    }
+
+    .hero-label,
+    .section-label {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+    }
+
+    .hero-note {
+        gap: 10px;
+        font-size: 10px;
+    }
+
+    .hero-visual {
+        padding: 10px 0 45px;
+    }
+
+    .dashboard-preview {
+        padding: 16px;
+    }
+
+    .preview-heading h2 {
+        font-size: 20px;
+    }
+
+    .preview-stats {
+        gap: 6px;
+    }
+
+    .preview-card {
+        padding: 12px 7px;
+    }
+
+    .preview-card strong {
+        font-size: 18px;
+    }
+
+    .preview-card small {
+        font-size: 8px;
+    }
+
+    .floating-card {
+        left: 0;
+        padding: 12px 14px;
+    }
+
+    .features-section {
+        padding: 65px 5%;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .cta-section h2 {
+        font-size: 30px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .feature-card {
+        min-height: auto;
+        padding: 23px;
+    }
+
+    .about-section {
+        padding: 65px 6%;
+    }
+
+    .about-highlight {
+        padding: 25px;
+    }
+
+    .about-highlight h3 {
+        font-size: 20px;
+    }
+
+    .cta-section {
+        padding: 70px 6%;
+    }
+
+    .footer {
+        padding: 35px 5% 22px;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+}
+
+/* EXTRA SMALL PHONES */
+
+@media (max-width: 360px) {
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .nav-actions {
+        gap: 7px;
+    }
+
+    .login-link {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .preview-card strong {
+        font-size: 16px;
+    }
+}

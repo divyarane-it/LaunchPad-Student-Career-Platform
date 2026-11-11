@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | LaunchPad</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <main class="auth-container">
+
+        <section class="auth-brand">
+            <a href="index.html" class="brand-logo">Launch<span>Pad.</span></a>
+
+            <div class="brand-content">
+                <p class="eyebrow">WELCOME BACK</p>
+                <h1>Your next opportunity starts here.</h1>
+                <p>Continue tracking your progress, exploring opportunities and building the career you want.</p>
+            </div>
+
+            <div class="brand-footer">
+                © 2026 LaunchPad. All rights reserved.
+            </div>
+        </section>
+
+        <section class="auth-form-section">
+
+            <div class="auth-form-wrapper">
+
+                <a href="index.html" class="mobile-logo">
+                    Launch<span>Pad.</span>
+                </a>
+
+                <p class="form-label">WELCOME BACK</p>
+                <h2>Sign in to LaunchPad</h2>
+                <p class="form-description">
+                    Enter your details to access your dashboard.
+                </p>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="auth-button">
+                        Sign In →
+                    </button>
+
+                    <p id="authMessage" class="auth-message"></p>
+
+                </form>
+
+                <p class="switch-auth">
+                    Don't have an account?
+                    <a href="signup.html">Create account</a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

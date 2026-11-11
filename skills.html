@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Tracker | LaunchPad</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/skills.css">
+</head>
+<body class="skills-page">
+
+    <aside class="sidebar" id="sidebar">
+
+        <a href="dashboard.html" class="brand-logo">
+            Launch<span>Pad.</span>
+        </a>
+
+        <nav class="sidebar-nav">
+            <p class="nav-label">WORKSPACE</p>
+            <a href="dashboard.html" class="nav-link">▦ Dashboard</a>
+            <a href="internships.html" class="nav-link">▤ Internships</a>
+            <a href="skills.html" class="nav-link active">✧ Skills</a>
+            <a href="tasks.html" class="nav-link">☑ Tasks</a>
+            <a href="quiz.html" class="nav-link">◎ Skill Quiz</a>
+
+            <p class="nav-label">ACCOUNT</p>
+            <a href="profile.html" class="nav-link">◉ Profile</a>
+            <a href="settings.html" class="nav-link">⚙ Settings</a>
+        </nav>
+
+        <div class="sidebar-user">
+            <div class="user-avatar" id="userAvatar">S</div>
+            <div>
+                <strong id="sidebarUserName">Student</strong>
+                <small>LaunchPad Member</small>
+            </div>
+            <button id="logoutBtn" class="logout-btn">↪ Sign Out</button>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button id="menuBtn" class="icon-button">☰</button>
+
+            <div class="topbar-right">
+                <button id="themeToggle" class="icon-button">☼</button>
+                <div class="user-avatar" id="topbarAvatar">S</div>
+            </div>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">PERSONAL DEVELOPMENT</p>
+                <h1>My Skills</h1>
+                <p class="page-description">
+                    Build your expertise, measure your progress and grow with confidence.
+                </p>
+            </div>
+
+            <button class="primary-button" id="addSkillBtn">
+                + Add New Skill
+            </button>
+        </section>
+
+        <!-- Skill Statistics -->
+
+        <section class="skill-stats">
+
+            <article class="skill-stat-card">
+                <span>Total Skills</span>
+                <h2 id="totalSkills">0</h2>
+                <small>Skills you're developing</small>
+            </article>
+
+            <article class="skill-stat-card">
+                <span>Average Proficiency</span>
+                <h2 id="averageProficiency">0%</h2>
+                <small>Across all your skills</small>
+            </article>
+
+            <article class="skill-stat-card">
+                <span>Advanced Skills</span>
+                <h2 id="advancedSkills">0</h2>
+                <small>Skills at 75% or above</small>
+            </article>
+
+        </section>
+
+        <!-- Skills Section -->
+
+        <section class="skills-panel">
+
+            <div class="skills-toolbar">
+                <div>
+                    <h2>Your Skill Collection</h2>
+                    <p>Track your learning journey.</p>
+                </div>
+
+                <select id="categoryFilter">
+                    <option value="All">All Categories</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Database">Database</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Tools">Tools</option>
+                    <option value="Soft Skills">Soft Skills</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="skills-grid" id="skillsGrid">
+
+                <div class="skills-empty">
+                    Your skills will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Add / Edit Skill Modal -->
+
+    <div class="modal-overlay" id="skillModal">
+
+        <div class="skill-modal">
+
+            <div class="modal-heading">
+                <div>
+                    <p class="eyebrow">SKILL MANAGEMENT</p>
+                    <h2 id="modalTitle">Add New Skill</h2>
+                </div>
+
+                <button id="closeModalBtn" class="icon-button">✕</button>
+            </div>
+
+            <form id="skillForm">
+
+                <input type="hidden" id="skillId">
+
+                <div class="form-group">
+                    <label for="skillName">Skill Name</label>
+                    <input
+                        type="text"
+                        id="skillName"
+                        placeholder="e.g. JavaScript"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="skillCategory">Category</label>
+
+                    <select id="skillCategory" required>
+                        <option value="Frontend">Frontend</option>
+                        <option value="Backend">Backend</option>
+                        <option value="Database">Database</option>
+                        <option value="Programming">Programming</option>
+                        <option value="Tools">Tools</option>
+                        <option value="Soft Skills">Soft Skills</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="proficiency">
+                        Proficiency Level:
+                        <strong id="proficiencyValue">50%</strong>
+                    </label>
+
+                    <input
+                        type="range"
+                        id="proficiency"
+                        min="0"
+                        max="100"
+                        value="50"
+                    >
+                </div>
+
+                <div class="modal-actions">
+                    <button
+                        type="button"
+                        id="cancelModalBtn"
+                        class="secondary-button"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="saveSkillBtn"
+                        class="primary-button"
+                    >
+                        Save Skill
+                    </button>
+                </div>
+
+                <p id="skillMessage"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

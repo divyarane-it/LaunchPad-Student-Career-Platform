@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Planner | LaunchPad</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/tasks.css">
+</head>
+
+<body class="tasks-page">
+
+    <aside class="sidebar" id="sidebar">
+
+        <a href="dashboard.html" class="brand-logo">
+            Launch<span>Pad.</span>
+        </a>
+
+        <nav class="sidebar-nav">
+            <p class="nav-label">WORKSPACE</p>
+            <a href="dashboard.html" class="nav-link">▦ Dashboard</a>
+            <a href="internships.html" class="nav-link">▤ Internships</a>
+            <a href="skills.html" class="nav-link">✧ Skills</a>
+            <a href="tasks.html" class="nav-link active">☑ Tasks</a>
+            <a href="quiz.html" class="nav-link">◎ Skill Quiz</a>
+
+            <p class="nav-label">ACCOUNT</p>
+            <a href="profile.html" class="nav-link">◉ Profile</a>
+            <a href="settings.html" class="nav-link">⚙ Settings</a>
+        </nav>
+
+        <div class="sidebar-user">
+            <div class="user-avatar" id="userAvatar">S</div>
+            <div>
+                <strong id="sidebarUserName">Student</strong>
+                <small>LaunchPad Member</small>
+            </div>
+            <button id="logoutBtn" class="logout-btn">↪ Sign Out</button>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <button id="menuBtn" class="icon-button">☰</button>
+
+            <div class="topbar-right">
+                <button id="themeToggle" class="icon-button">☼</button>
+                <div class="user-avatar" id="topbarAvatar">S</div>
+            </div>
+        </header>
+
+        <!-- Page Heading -->
+
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">PRODUCTIVITY WORKSPACE</p>
+                <h1>My Task Planner</h1>
+                <p class="page-description">
+                    Plan your day, manage priorities and achieve your goals.
+                </p>
+            </div>
+
+            <button class="primary-button" id="addTaskBtn">
+                + Add New Task
+            </button>
+        </section>
+
+        <!-- Task Statistics -->
+
+        <section class="task-stats">
+
+            <article class="task-stat-card">
+                <span>Total Tasks</span>
+                <h2 id="totalTasks">0</h2>
+                <small>All your tasks</small>
+            </article>
+
+            <article class="task-stat-card">
+                <span>Completed</span>
+                <h2 id="completedTasks">0</h2>
+                <small>Successfully finished</small>
+            </article>
+
+            <article class="task-stat-card">
+                <span>Pending</span>
+                <h2 id="pendingTasks">0</h2>
+                <small>Waiting to be done</small>
+            </article>
+
+            <article class="task-stat-card">
+                <span>Overdue</span>
+                <h2 id="overdueTasks">0</h2>
+                <small>Past their due date</small>
+            </article>
+
+        </section>
+
+        <!-- Task Collection -->
+
+        <section class="tasks-panel">
+
+            <div class="tasks-toolbar">
+                <div>
+                    <h2>Your Tasks</h2>
+                    <p>Keep track of everything that matters.</p>
+                </div>
+
+                <div class="task-filters">
+
+                    <input
+                        type="search"
+                        id="searchTask"
+                        placeholder="Search tasks..."
+                    >
+
+                    <select id="filterStatus">
+                        <option value="All">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="tasks-list" id="tasksList">
+
+                <div class="tasks-empty">
+                    Your tasks will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Add / Edit Task Modal -->
+
+    <div class="modal-overlay" id="taskModal">
+
+        <div class="task-modal">
+
+            <div class="modal-heading">
+                <div>
+                    <p class="eyebrow">TASK MANAGEMENT</p>
+                    <h2 id="modalTitle">Add New Task</h2>
+                </div>
+
+                <button
+                    type="button"
+                    id="closeModalBtn"
+                    class="icon-button"
+                >✕</button>
+            </div>
+
+            <form id="taskForm">
+
+                <input type="hidden" id="taskId">
+
+                <div class="form-group">
+                    <label for="taskTitle">Task Title</label>
+                    <input
+                        type="text"
+                        id="taskTitle"
+                        placeholder="e.g. Complete JavaScript project"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea
+                        id="taskDescription"
+                        rows="3"
+                        placeholder="Enter task details..."
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="dueDate">Due Date</label>
+                    <input type="date" id="dueDate">
+                </div>
+
+                <div class="form-group">
+                    <label for="taskPriority">Priority</label>
+                    <select id="taskPriority" required>
+                        <option value="Low">Low</option>
+                        <option value="Medium" selected>Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskStatus">Status</label>
+                    <select id="taskStatus" required>
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelModalBtn"
+                        class="secondary-button"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        id="saveTaskBtn"
+                        class="primary-button"
+                    >
+                        Save Task
+                    </button>
+
+                </div>
+
+                <p id="taskMessage"></p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

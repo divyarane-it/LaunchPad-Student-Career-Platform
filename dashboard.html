@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | LaunchPad</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <a href="dashboard.html" class="brand-logo">
+                Launch<span>Pad.</span>
+            </a>
+
+            <p class="nav-label">WORKSPACE</p>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link active">
+                    <span>◫</span> Overview
+                </a>
+
+                <a href="internships.html" class="nav-link">
+                    <span>▣</span> Internships
+                </a>
+
+                <a href="skills.html" class="nav-link">
+                    <span>✦</span> My Skills
+                </a>
+
+                <a href="tasks.html" class="nav-link">
+                    <span>☑</span> Task Planner
+                </a>
+
+                <a href="quiz.html" class="nav-link">
+                    <span>◉</span> Skill Quiz
+                </a>
+            </nav>
+
+            <p class="nav-label">ACCOUNT</p>
+
+            <nav class="sidebar-nav">
+                <a href="profile.html" class="nav-link">
+                    <span>♙</span> My Profile
+                </a>
+
+                <a href="settings.html" class="nav-link">
+                    <span>⚙</span> Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="user-mini">
+                    <div class="avatar" id="userAvatar">S</div>
+                    <div>
+                        <strong id="sidebarUserName">Student</strong>
+                        <small>LaunchPad Member</small>
+                    </div>
+                </div>
+
+                <button id="logoutBtn" class="logout-btn">
+                    ↪ Sign Out
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <button class="menu-btn" id="menuBtn">☰</button>
+
+                <div class="topbar-right">
+                    <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☼</button>
+                    <div class="topbar-avatar" id="topbarAvatar">S</div>
+                </div>
+            </header>
+
+            <section class="welcome-section">
+                <div>
+                    <p class="section-eyebrow">YOUR PERSONAL WORKSPACE</p>
+                    <h1>Welcome back, <span id="welcomeName">Student</span> 👋</h1>
+                    <p class="welcome-description">
+                        Here's an overview of your career journey.
+                    </p>
+                </div>
+
+                <a href="internships.html" class="primary-btn">
+                    + Add Opportunity
+                </a>
+            </section>
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <article class="stat-card">
+                    <div class="stat-icon purple">▣</div>
+                    <p>Total Applications</p>
+                    <h2 id="totalApplications">0</h2>
+                    <small>Internship opportunities tracked</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon blue">◷</div>
+                    <p>In Progress</p>
+                    <h2 id="inProgress">0</h2>
+                    <small>Applications being reviewed</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon green">✦</div>
+                    <p>Skills Tracked</p>
+                    <h2 id="totalSkills">0</h2>
+                    <small>Skills in your learning journey</small>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon orange">☑</div>
+                    <p>Pending Tasks</p>
+                    <h2 id="pendingTasks">0</h2>
+                    <small>Tasks waiting for completion</small>
+                </article>
+
+            </section>
+
+            <!-- MAIN GRID -->
+            <section class="content-grid">
+
+                <article class="content-card">
+                    <div class="card-heading">
+                        <div>
+                            <p class="section-eyebrow">YOUR PROGRESS</p>
+                            <h3>Application Overview</h3>
+                        </div>
+                        <a href="internships.html">View all →</a>
+                    </div>
+
+                    <canvas id="applicationChart"></canvas>
+                </article>
+
+                <article class="content-card">
+                    <div class="card-heading">
+                        <div>
+                            <p class="section-eyebrow">STAY PRODUCTIVE</p>
+                            <h3>Task Summary</h3>
+                        </div>
+                        <a href="tasks.html">View all →</a>
+                    </div>
+
+                    <div class="task-summary">
+                        <div class="task-progress-circle" id="taskProgressCircle">
+                            <span id="taskProgress">0%</span>
+                        </div>
+                        <h4>Keep moving forward!</h4>
+                        <p id="taskSummaryText">Start adding tasks to track your progress.</p>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- RECENT ACTIVITY -->
+            <section class="content-card recent-section">
+
+                <div class="card-heading">
+                    <div>
+                        <p class="section-eyebrow">LATEST UPDATES</p>
+                        <h3>Recent Applications</h3>
+                    </div>
+
+                    <a href="internships.html">View all →</a>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Applied On</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="recentApplications">
+                            <tr>
+                                <td colspan="4" class="empty-state">
+                                    No applications yet. Add your first opportunity!
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <footer class="dashboard-footer">
+                Made with purpose. Built for your future. © 2026 LaunchPad.
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

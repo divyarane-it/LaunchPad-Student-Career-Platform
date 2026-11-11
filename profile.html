@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | LaunchPad</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+
+<body class="profile-page">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <a href="dashboard.html" class="brand-logo">
+            Launch<span>Pad.</span>
+        </a>
+
+        <p class="nav-label">WORKSPACE</p>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">
+                <span>◫</span> Overview
+            </a>
+            <a href="internships.html" class="nav-link">
+                <span>▣</span> Internships
+            </a>
+            <a href="skills.html" class="nav-link">
+                <span>✦</span> My Skills
+            </a>
+            <a href="tasks.html" class="nav-link">
+                <span>☑</span> Task Planner
+            </a>
+            <a href="quiz.html" class="nav-link">
+                <span>◉</span> Skill Quiz
+            </a>
+        </nav>
+
+        <p class="nav-label">ACCOUNT</p>
+
+        <nav class="sidebar-nav">
+            <a href="profile.html" class="nav-link active">
+                <span>♙</span> My Profile
+            </a>
+            <a href="settings.html" class="nav-link">
+                <span>⚙</span> Settings
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="user-mini">
+                <div class="avatar" id="userAvatar">S</div>
+                <div>
+                    <strong id="sidebarUserName">Student</strong>
+                    <small>LaunchPad Member</small>
+                </div>
+            </div>
+
+            <button id="logoutBtn" class="logout-btn">
+                ↪ Sign Out
+            </button>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div>
+                    <h2>My Profile</h2>
+                    <p>Manage your personal information</p>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <button id="themeToggle" class="theme-toggle">☼</button>
+            </div>
+        </header>
+
+        <!-- PAGE HEADING -->
+        <section class="page-heading">
+            <div>
+                <span class="eyebrow">ACCOUNT</span>
+                <h1>Your Profile</h1>
+                <p>Keep your profile updated and showcase your journey.</p>
+            </div>
+        </section>
+
+        <!-- PROFILE CONTENT -->
+        <section class="profile-layout">
+
+            <!-- PROFILE CARD -->
+            <div class="profile-card">
+                <div class="profile-cover"></div>
+
+                <div class="profile-avatar-section">
+                    <div class="profile-avatar" id="profileAvatar">S</div>
+                    <div>
+                        <h2 id="displayName">Student Name</h2>
+                        <p id="displayEmail">student@example.com</p>
+                        <span class="member-badge">LaunchPad Member</span>
+                    </div>
+                </div>
+
+                <div class="profile-card-footer">
+                    <p>Welcome to your personal career workspace.</p>
+                </div>
+            </div>
+
+            <!-- PROFILE FORM -->
+            <div class="profile-form-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p>Update your details below.</p>
+                    </div>
+
+                    <button type="button" id="editProfileBtn" class="edit-btn">
+                        Edit Profile
+                    </button>
+                </div>
+
+                <form id="profileForm">
+
+                    <div class="profile-form-grid">
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName"
+                                placeholder="Enter your full name" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone"
+                                placeholder="Enter phone number" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location"
+                                placeholder="City, State" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="education">Education</label>
+                            <input type="text" id="education"
+                                placeholder="e.g. B.Sc. Information Technology" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="college">College / University</label>
+                            <input type="text" id="college"
+                                placeholder="Enter college name" disabled>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="bio">About Me</label>
+                            <textarea id="bio" rows="4"
+                                placeholder="Write a short introduction about yourself..."
+                                disabled></textarea>
+                        </div>
+
+                    </div>
+
+                    <div id="profileMessage" class="profile-message"></div>
+
+                    <div class="form-actions" id="formActions" hidden>
+                        <button type="button" id="cancelEditBtn" class="cancel-btn">
+                            Cancel
+                        </button>
+
+                        <button type="submit" id="saveProfileBtn" class="save-btn">
+                            Save Changes
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>
